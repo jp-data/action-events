@@ -1,11 +1,8 @@
 import Image from 'next/image'
 import Logo from '../../assets/Logo.svg'
-import MedalGold from '../../assets/Medal_gold.svg'
-import MedalSilver from '../../assets/Medal_silver.svg'
-import MedalCooper from '../../assets/Medal_cooper.svg'
-import { InputField, InputIcon, InputRoot } from '@/components/Input'
-import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from 'lucide-react'
-import { IconButton } from '@/components/IconButton'
+import { Ranking } from './ranking'
+import { Stats } from './stats'
+import { InviteLinkInput } from './invite-link-input'
 
 export default function InvitePage() {
     return (
@@ -30,90 +27,11 @@ export default function InvitePage() {
                             Voluptates assumenda animi, consequuntur ipsa:
                         </p>
                     </div>
-                    <InputRoot>
-                        <InputIcon>
-                            <Link className='size-5' />
-                        </InputIcon>
-
-                        <InputField
-                            readOnly
-                            defaultValue='htp://localhost:3000/invite/541sd51sd5sd1'
-                        />
-
-                        <IconButton className='-mr-2'>
-                            <Copy className='size-5' />
-                        </IconButton>
-                    </InputRoot>
-
-                    <div className='grid gap-3 md:grid-cols-3'>
-                        <div className='relative bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 rounded-xl'>
-                            <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                                1042
-                            </span>
-                            <span className='text-sm text-gray-300 leading-none text-center'>
-                                Acessos ao Link
-                            </span>
-                            <MousePointerClick className='size-5 text-purple absolute top-3 left-3' />
-                        </div>
-
-                        <div className='relative bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 rounded-xl'>
-                            <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                                1042
-                            </span>
-                            <span className='text-sm text-gray-300 leading-none text-center'>
-                                Inscrições feitas
-                            </span>
-                            <BadgeCheck className='size-5 text-purple absolute top-3 left-3' />
-                        </div>
-
-                        <div className='relative bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 rounded-xl'>
-                            <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                                3º
-                            </span>
-                            <span className='text-sm text-gray-300 leading-none text-center'>
-                                Posição no ranking
-                            </span>
-                            <Medal className='size-5 text-purple absolute top-3 left-3' />
-                        </div>
-
-                    </div>
+                    <InviteLinkInput />
+                    <Stats />
                 </div>
             </div>
-
-            <div className='w-full max-w-[440px] space-y-5'>
-                <h2 className='text-gray-200 text-xl font-heading leading-none'>
-                    Ranking de indicações
-                </h2>
-                <div className='space-y-4'>
-                    <div className='relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3'>
-                        <span className='text-sm text-gray-300 leading-none'>
-                            <span className='font-semibold'>1º</span> | Nome teste
-                        </span>
-                        <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                            1030
-                        </span>
-                        <Image src={MedalGold} alt="gold_medal" className='absolute top-0 right-8' />
-                    </div>
-                    <div className='relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3'>
-                        <span className='text-sm text-gray-300 leading-none'>
-                            <span className='font-semibold'>2º</span> | Nome teste
-                        </span>
-                        <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                            1030
-                        </span>
-                        <Image src={MedalSilver} alt="gold_medal" className='absolute top-0 right-8' />
-                    </div>
-                    <div className='relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3'>
-                        <span className='text-sm text-gray-300 leading-none'>
-                            <span className='font-semibold'>3º</span> | Nome teste
-                        </span>
-                        <span className='font-heading text-2xl font-semibold text-gray-200 leading-none'>
-                            1030
-                        </span>
-                        <Image src={MedalCooper} alt="gold_medal" className='absolute top-0 right-8' />
-                    </div>
-                </div>
-            </div>
+            <Ranking />
         </div>
     )
 }
