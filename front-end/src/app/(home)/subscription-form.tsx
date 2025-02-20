@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { subscribeToEvent } from "@/http/api";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const subscriptionSchema = z.object({
     name: z.string().min(2, 'Digite seu nome completo'),
@@ -17,6 +17,7 @@ const subscriptionSchema = z.object({
 type SubscriptionSchema = z.infer<typeof subscriptionSchema>
 
 export function SubscriptionForm() {
+    const searchParams = useSearchParams()
     const router = useRouter()
 
     const { register, handleSubmit, formState: { errors } } = useForm<SubscriptionSchema>({
@@ -24,7 +25,8 @@ export function SubscriptionForm() {
     })
 
     async function onSubscribe({ name, email }: SubscriptionSchema) {
-        const { subscriberId } = await subscribeToEvent({ name, email })
+        const referrer = searchParams.get('referrer')
+        const { subscriberId } = await subscribeToEvent({ name, email, referrer })
         router.push(`/invite/${subscriberId}`)
     }
 
