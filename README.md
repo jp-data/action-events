@@ -29,9 +29,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ### pnpm dev
 # or
 ### bun dev
+
+
+### Abra no navegador [http://localhost:3000](http://localhost:3000) e verá o resultado.
 ```
 
-Abra no navegador [http://localhost:3000](http://localhost:3000) e verá o resultado.
+
 
 
 
